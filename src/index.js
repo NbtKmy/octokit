@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Upload from './Upload';
 import GetLogin from './GetLogin';
 import reportWebVitals from './reportWebVitals';
 import { store } from './redux/store';
@@ -14,7 +14,7 @@ ReactDOM.render(
     <Provider store={store}>
       <AlertProvider template={AlertTemplate}>
         <GetLogin />
-        <App />
+        <Upload />
       </AlertProvider>
     </Provider>
   </React.StrictMode>,
