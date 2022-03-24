@@ -3,7 +3,7 @@
 You can upload a file as a Gist in your Github account.
 
 - You need your own Github token for the gist
-- 'txt', 'csv', 'md', 'markdown', 'xml', 'json', 'js', and 'py' are the allowed format
+- 'txt', 'csv', 'md', 'markdown', 'xml', 'json', 'js', and 'py' are allowed
 
 ## Test
 
