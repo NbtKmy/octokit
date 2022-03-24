@@ -1,13 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { gitLogin } from '../gitlogin';
+import { gitLogin } from '../../components/gitlogin';
 
 export const getUserName = createAsyncThunk(
   "login/getUserName", 
   async (token) => { 
     const reqToken = "token " + token;
-    console.log(reqToken);
     const result = await gitLogin(reqToken);
-    console.log(result);
     return result; 
   }
 )

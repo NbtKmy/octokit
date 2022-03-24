@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { fileUpload, selectUpload, setIsFilePicked, setSelectedFile, setFileContent } from './redux/uploadSlice';
-import { selectLogin } from './redux/loginSlice';
+import { fileUpload, selectUpload, setIsFilePicked, setSelectedFile, setFileContent } from '../redux/slices/uploadSlice';
+import { selectLogin } from '../redux/slices/loginSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert'
 
@@ -29,8 +29,6 @@ function Upload(){
 	const { isFilePicked, selectedFile, fileContent } = useSelector(selectUpload);
 	const inputRefFile = useRef();
 	const fileAlert = useAlert();
-	
-
 
 	const changeHandler = (event) => {
 		dispatch(setSelectedFile(event.target.files[0]));
@@ -73,6 +71,7 @@ function Upload(){
 	return(
    <div>
 			<input type="file" name="file" ref={inputRefFile} accept=".txt, .csv, .md, .markdown, .xml, .json, .js, .py" onChange={event => changeHandler(event)} />
+			<p>You can upload one file (.txt, .csv, .md, .markdown, .xml, .json, .js, .py) as a gist in your Github account</p>
 			{isFilePicked ? (
 				<div>
 					<p>Filename: {selectedFile.name}</p>
@@ -88,7 +87,7 @@ function Upload(){
 			)}
 
 			<div>
-				<button onClick={handleSubmission}>Submit</button>
+				<button onClick={handleSubmission}>Create gist</button>
 			</div>
 			
 		</div>

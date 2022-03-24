@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import loginReducer from './loginSlice';
-import uploadReducer, { fileUpload } from './uploadSlice';
+import loginReducer from './slices/loginSlice';
+import uploadReducer, { fileUpload } from './slices/uploadSlice';
 
 export const store = configureStore({
   reducer: {
