@@ -3,10 +3,29 @@ import { getUserName, selectLogin, setToken, loginSuccess } from '../redux/slice
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert'
 
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Box from '@mui/material/Box';
+
+
+
+const useStyles = makeStyles((theme) => ({
+  header: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 
 
 function GetLogin() {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
 	const { isLoggedIn, token, userName } = useSelector(selectLogin);
   const inputRef = useRef();
@@ -25,20 +44,26 @@ function GetLogin() {
     }
 	}
     return(
-      <div>
-        <input type="text" ref={inputRef} name="token" onChange={e => dispatch(setToken(e.target.value))} />
-        { isLoggedIn 
-          ? 
-          <div>
-            <p> You are logged in as {userName}</p>
-            <button onClick={tokenSubmit}>Login with other token</button>
-          </div>
-          : 
-          <div>
-            <p> Please log in with your github token </p>
-            <button onClick={tokenSubmit}>Login with token</button>
-          </div>
-          }
+      <div className={classes.header}>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              <Box textAlign="left">React & Octokit App</Box>
+            </Typography>
+            <input type="text" ref={inputRef} name="token" placeholder="Github token" onChange={e => dispatch(setToken(e.target.value))} />
+            { isLoggedIn 
+              ? 
+              <div>
+                <p> Hello, {userName}!</p>
+                <Button color="inherit" onClick={tokenSubmit}>Login with other token</Button>
+              </div>
+              : 
+              <div>
+                <Button color="inherit" onClick={tokenSubmit}>Login</Button>
+              </div>
+              }
+            </Toolbar>
+          </AppBar>
       </div>
     );
     

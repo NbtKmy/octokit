@@ -16,3 +16,7 @@ octokit: ^1.7.1
 react-alert: ^7.0.3  
 react-alert-template-basic": ^1.0.2  
 react-redux": ^7.2.6  
+@emotion/react: ^11.8.2  
+@emotion/styled: ^11.8.1  
+@material-ui/core: ^4.12.3  
+@mui/material: ^5.5.2  
