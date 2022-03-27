@@ -1,5 +1,6 @@
 import React, { useRef }  from 'react';
 import { getUserName, selectLogin, setToken, loginSuccess } from '../redux/slices/loginSlice';
+import { decrypt, encrypt } from './encrypt';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert'
 
@@ -33,7 +34,8 @@ function GetLogin() {
 
   const tokenSubmit = async () => {
     inputRef.current.value = '';
-    const result = await dispatch(getUserName(token));
+
+    const result = await dispatch(getUserName(decrypt(token)));
 
     if (getUserName.fulfilled.match(result)) {
       dispatch(loginSuccess());
@@ -50,7 +52,7 @@ function GetLogin() {
             <Typography variant="h6" className={classes.title}>
               <Box textAlign="left">React & Octokit App</Box>
             </Typography>
-            <input type="text" ref={inputRef} name="token" placeholder="Github token" onChange={e => dispatch(setToken(e.target.value))} />
+            <input type="text" ref={inputRef} name="token" placeholder="Github token" onChange={e => dispatch(setToken(encrypt(e.target.value)))} />
             { isLoggedIn 
               ? 
               <div>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { fileUpload, selectUpload, setIsFilePicked, setSelectedFile, setFileContent } from '../redux/slices/uploadSlice';
 import { selectLogin } from '../redux/slices/loginSlice';
+import { decrypt } from './encrypt';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAlert } from 'react-alert'
 
@@ -56,7 +57,7 @@ function Upload(){
 		}
 		else {
 		
-		const obj = [token, fileName, fileContent];
+		const obj = [decrypt(token), fileName, fileContent];
 		
 		const resultFileUpload = await dispatch(fileUpload(obj));
 		if (fileUpload.fulfilled.match(resultFileUpload)) {

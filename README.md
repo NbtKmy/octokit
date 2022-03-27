@@ -7,7 +7,7 @@ You can upload a file as a Gist in your Github account.
 
 ## Test
 
-https://nbtkmy.github.io/octokit/build/index.html
+
 
 ## Dev env
 
@@ -24,3 +24,7 @@ react-redux": ^7.2.6
 @emotion/styled: ^11.8.1  
 @material-ui/core: ^4.12.3  
 @mui/material: ^5.5.2  
+buffer: ^6.0.3  
+crypto-browserify: ^3.12.0  
+react-app-rewired: ^2.2.1  
+stream-browserify: ^3.0.0  
