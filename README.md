@@ -5,9 +5,21 @@ You can upload a file as a Gist in your Github account.
 - You need your own Github token for the gist
 - 'txt', 'csv', 'md', 'markdown', 'xml', 'json', 'js', and 'py' are allowed
 
-## Test
+## Usage
 
+1. Clone this repo
+2. Create an ".env" file for the encryption in the project folder.  
+It seems like:
+```text:.env
+REACT_APP_ENCRYPTION_KEY = '[Your encryption key]'
+``` 
+3. `npm install`  
+4. `npm start` 
 
+## For security ...
+
+Encrypted tokens will be stored in the Redux store. If you need to create a more secure environment, you should think to use a server side solution. 
+Please use this repo with caution. 
 
 ## Dev env
 
